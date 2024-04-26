@@ -6,9 +6,8 @@ using System.Threading.Tasks;
 
 namespace LogAnalyzerLibrary.Entities
 {
-    public class Directory
+    public class ArchivedLog : LogFile
     {
-        public string Id { get; init; } = Guid.NewGuid().ToString();
-        public string DirectoryNamePath { get; set; } = string.Empty;
+        public string archivedFilePath {  get; set; } = string.Empty;
     }
 }

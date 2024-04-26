@@ -15,5 +15,6 @@ namespace Log_Analyzer_API.Data.AppDbContext
         public DbSet<Directory>? Directories { get; set; }
         public DbSet<LogFile>? LogFiles { get; set; }  
         public DbSet<Log>? Logs { get; set; }
+        public DbSet<ArchivedLog>? ArchivedLogs { get; set;}
     }
 }

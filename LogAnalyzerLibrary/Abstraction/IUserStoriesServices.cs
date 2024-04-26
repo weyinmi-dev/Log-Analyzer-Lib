@@ -4,15 +4,15 @@ namespace LogAnalyzerLibrary.Abstraction
 {
     public interface IUserStoriesServices
     {
-        IQueryable<Log> SearchLogInDirection(string searchedLog);
-        IQueryable<Log> NumberOfUniqueErrors(string numberOfUniqueErrors);
-        IQueryable<Log> NumberOfDuplicatedErrors(string numberOfDuplicatedErrors);
-        Task<Log> DeleteArchive();
-        Task<Log> ArchiveLogs();
-        Task<Log> UploadLogToRemoteServerPerAPI();
-        Task<Log> DeleteLogs();
-        Task<Log> TotalAvailableLogsInAPeriod(Log log, string dateTime);
-        Task<Log> SearchLogsPerSize(int logSize);
-        IQueryable<Log> SearchLogsPerDirectory(Log log);
+        IQueryable<LogFile> SearchLogInDirectory(string searchedLog);
+        public int NumberOfUniqueErrors(Log log);
+        public int NumberOfDuplicatedErrors(Log log);
+        Task<LogFile> DeleteArchive(string archiveFilePath);
+        Task<LogFile> ArchiveLogs(string startDate, string endDate);
+        Task<LogFile> UploadLogToRemoteServerPerAPI();
+        Task<LogFile> DeleteLogs(string archivedFilePath);
+        Task<LogFile> TotalAvailableLogsInAPeriod(Log log, string startDateTime, string endDateTime);
+        public Task<LogFile> SearchLogsPerSize(int logSize);
+        IQueryable<LogFile> SearchLogsPerDirectory(LogFile logFile);
     }
 }

@@ -4,6 +4,10 @@
     {
         public string LogFileName { get; set; } = string.Empty;
         public string LogFilePath { get; set; } = string.Empty;
+        public int LogFileSize { get; set; }
+        public DateTime DateCreated { get; set; }
+        public bool NeedsToBeUploaded { get; set; }
+
     }
 }
 
