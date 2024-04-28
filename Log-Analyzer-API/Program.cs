@@ -3,10 +3,7 @@ using Log_Analyzer_API.ServiceExtensions;
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
-
-builder.Services.AddControllers();
 builder.Services.AddServices(builder.Configuration);
-builder.Services.AddSwaggerGen();
 
 var app = builder.Build();
 

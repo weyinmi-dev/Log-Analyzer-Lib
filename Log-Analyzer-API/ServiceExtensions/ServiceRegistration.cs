@@ -1,6 +1,5 @@
-﻿using Log_Analyzer_API.Data.AppDbContext;
-using Log_Analyzer_API.Implementation;
-using LogAnalyzerLibrary.Abstraction;
+﻿using LogAnalyzerLibrary.Abstraction;
+using LogAnalyzerLibrary.Implementation;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
 using System;
@@ -11,7 +10,7 @@ namespace Log_Analyzer_API.ServiceExtensions
     {
         public static void AddServices(this IServiceCollection services, IConfiguration configuration)
         {
-            services.AddDbContext<LogDbContext>(options => options.UseSqlServer(configuration.GetConnectionString("default")));
+            services.AddControllers();
 
             services.AddCors(options =>
             {
@@ -24,9 +23,12 @@ namespace Log_Analyzer_API.ServiceExtensions
                     });
             });
             
-            services.AddScoped<IUserStoriesServices, UserStoriesServices>();
+            services.AddSingleton<ILogAnalyzerUserStories, LogAnalyzerUserStories>();
+
+            services.AddSwaggerGen();
+
         }
 
-       
+
     }
 }
